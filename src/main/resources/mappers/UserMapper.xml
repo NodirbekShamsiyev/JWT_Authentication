@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015.
+  ~ Rakhmatov Ruslan
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sails.repository.mappers.DomainUserMapper">
+
+    <select id="getByEmail" parameterType="java.lang.String" resultMap="UserResult">
+      select bu.email, bu.password, bu.first_name, bu.last_name, r.role ,
+       bu.enabled, bu.tokenExpired from bileton_user bu join user_roles ur on bu.id = ur.user_id join role r on r.id = ur.role_id  where email=#{email}
+    </select>
+    <select id="getByFirstName" parameterType="java.lang.String" resultMap="UserResult">
+        select * from bileton_user where first_name=#{first_name}
+    </select>
+
+
+    <resultMap id="UserResult" type="org.sails.entity.DomainUser">
+        <id column="id" property="ID"/>
+        <result column="email" property="email"/>
+        <result column="password" property="password"/>
+        <result column="first_name" property="firstName"/>
+        <result column="last_name" property="lastName"/>
+        <result column="enabled" property="enabled"/>
+        <result column="tokenExpired" property="tokenExpired"/>
+        <collection property="roles" javaType="java.util.List" ofType="java.lang.String">
+            <result column="role"/>
+        </collection>
+    </resultMap>
+</mapper>
