@@ -14,8 +14,8 @@ import java.util.*;
  * Created by Nodirbek on 18.09.2015.
  */
 public class TokenService {
-    private String encodedSecretKey; /* ihSAUFhrCVW0XzPZJ4UWGw== */
-    private String secretKeyAlgorithm; /* AES */
+    private String encodedSecretKey;
+    private String secretKeyAlgorithm;
     private SignatureAlgorithm signatureAlgorithm;
     private Key key;
 

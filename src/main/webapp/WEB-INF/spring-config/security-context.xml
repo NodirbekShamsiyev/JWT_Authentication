@@ -24,10 +24,10 @@ http://www.springframework.org/schema/security/spring-security.xsd">
     <bean id="userDetailsService" class="org.sails.security.UserDetailsService"/>
 
     <bean id="crypt" class="org.sails.security.service.TokenService">
-        <constructor-arg index="0" value="ihSAUFhrCVW0XzPZJ4UWGw=="/>
-        <constructor-arg index="1" value="AES"/>
+        <constructor-arg index="0" value=""/>
+        <constructor-arg index="1" value=""/>
         <constructor-arg index="2" >
-            <value type="io.jsonwebtoken.SignatureAlgorithm">HS512</value>
+            <value type="io.jsonwebtoken.SignatureAlgorithm"></value>
         </constructor-arg>
     </bean>
 
